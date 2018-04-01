@@ -4,21 +4,48 @@ from kennedycash.models import *
 from djmoney.money import Money
 
 
-class PersonalTransactionTest(TestCase):
+class QueryTest(TestCase):
 
     @classmethod
     def setUpTestData(cls):
         # Run once before all tests
-        Category.objects.create(name='foo')
-        category = Category.objects.get(id=1)
-        PersonalTransaction.objects.create(date=datetime.now().date(),
-                                           description='a description here',
-                                           amount=Money(10, 'CAD'))
-        personalTransaction = PersonalTransaction.objects.get(id=1)
-        personalTransaction.categories.add(category)
+        pass
+
+    def test_transactiom_split_debit_credit(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_grouped_by_month(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_grouped_by_quarter(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_grouped_by_year(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_grouped_by_category(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_grouped_by_category_and_month(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_monthly_average(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_quarterly_average(self):
+        self.assertEquals(True, True)
+
+    def test_transactions_yearly_average(self):
+        self.assertEquals(True, True)
 
 
-    def test_description_content(self):
-        personalTransaction = PersonalTransaction.objects.get(id=1)
-        expected_object_name = '%s' % (personalTransaction.description,)
-        self.assertEquals(expected_object_name, 'a description here')
+class CategoryTest(TestCase):
+
+    def test_unmatched_transaction_is_uncategorized(self):
+        self.assertEquals(True, True)
+
+    def test_matched_transaction_is_categorized(self):
+        self.assertEquals(True, True)
+
+    def test_multi_match_transaction_uses_first_match(self):
+        self.assertEquals(True, True)
